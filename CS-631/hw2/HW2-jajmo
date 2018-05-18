@@ -1,0 +1,73 @@
+Jason Ajmo
+CS-631 Homework 2
+Goal: Compare NetBSD's and GNU/coreutils's implementation of `stat(1)`
+----------------------------------------------------------------------
+
+* Some of the behavior below was tested on NetBSD 7.1 (NetBSD implementation) and
+  Arch Linux (GNU/coreutils implementation).
+
+On first glance, the NetBSD implementation of `stat` makes far more use of
+the preprocessor than the Linux implementation. One of the things I found 
+interesting about NetBSD's implementation is that it uses the preprocessor 
+to determine if it's able to determine the birthtime of a file, while Linux's 
+implementation uses the function `get_stat_birthtime`, defined in `stat-time.h`.
+NetBSD also uses the preprocessor to define the default formats, whereas 
+coreutils defines default formats in the function `default_format()`.
+Defining default formats in a function adds slightly more overhead, having 
+to use more stack frames, etc.
+
+Furthermore on formatting, NetBSD's function to parse a user-specified 
+format string is not easy to read, with preprocessor directives intermingled 
+with a switch statement. On the contrary, Linux's implementation of format 
+parsing is far more readable and more simple to understand. This is not only 
+due to the lack of preprocessor directives, but the function as a whole is
+far more simple. Instead of doing the work to show the format in the switch
+(as NetBSD does), Linux's implementation simply calls a function based on the
+flag to show the output in the specified format.
+
+Another functional difference is that Linux's `stat` allows the -f flag,
+which shows a filesystem status instead of a file. NetBSD does not support
+this flag. NetBSD's -f flag specifies a format string. There's also an 
+interesting error case in Linux's implementation, where if you run it as
+`stat -f -`, it prints a special error stating that using `-` to specify
+stdin isn't allowed in filesystem mode.
+
+Another interesting difference is the default behavior. On NetBSD, without
+any operands, `stat` will stat stdin. However, on Linux, without any operands
+it prints an error. This is because in NetBSD's implementation. there's 
+the following code:
+
+```
+if (argc == 0)
+	rc = fstat(STDIN_FILENO, &st);
+```
+
+which stats stdin by default, if no operands are supplied. Linux's
+implementation also has a special error case for stating stdin, which is 
+not allowed.
+
+NetBSD's implementation also uses `lstat` as a fallback for `stat` (which
+can be changed by the -L flag, forcing `stat` instead of `lstat`), whereas
+Linux uses either `stat` or `lstat`, depending on the flags supplied by the
+user. This is interesting behavior, which would cause NetBSD's implementation
+to, as the comment states, properly print out broken symlinks. While both
+implementations rely on the `fstat`, `stat`, and `lstat` system calls, they
+are used in different ways since each implementation allows/disallows certain
+operations.
+
+Linux's implementation also has a function to determine the filesystem type,
+which is not used in NetBSD's implementation since NetBSD doesn't have an
+option to stat a filesystem. This could be due to the fact that Linux
+supports far more filesystem types than NetBSD, as well as the fact that
+coreutils is used on far more operating system variants than NetBSD's implementation.
+
+Linux's implementation also uses far more macros than NetBSD's implementation.
+Personally, I feel that NetBSD's implementation is easier to follow without
+macros, since the functionality is clear, and you're not forced to dig into
+other header files to determine what the macros do.
+
+Overall, they're functionally very similar, relying on the base system calls.
+While there is still some variance in functionality (i.e. Linux `stat` being
+able to stat a filesystem), they function in essentially the same way. There's
+some distinct differences, namely in the reliance on the preprocessor and
+various macros, leading to some readability issues in both implementations.

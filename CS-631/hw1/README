@@ -1,0 +1,16 @@
+Homework 1 - `tcp` and `tcpm`
+============================
+Author: Jason Ajmo (jajmo@stevens.edu)
+
+Compiling
+---------
+* `make` will build both `tcp` and `tcpm`
+* `make tcp` will build `tcp`
+* `make tcpm` will build `tcpm`
+* `make clean` cleans all object and temp files
+* `make fclean` cleans all object, temp, and executable files
+* `make re` is equivalent to `make fclean; make`
+
+Notes
+-----
+* Written and tested on a clean NetBSD 7.1 installation

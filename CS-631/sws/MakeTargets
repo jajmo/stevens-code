@@ -1,0 +1,1 @@
+SRC := sws.c net.c common.c parse.c fs.c response.c cgi-handler.c

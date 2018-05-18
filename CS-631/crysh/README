@@ -1,0 +1,30 @@
+Final Assignment - Crysh
+========================
+* Author: Jason Ajmo (jajmo@stevens.edu)
+
+Usage
+-----
+* Compile with `make`
+* crysh reads input encrypted with AES-256-CBC with a SHA1 checksum, and executes the commands found
+
+Notes
+-----
+* crysh supports escaping (`\`), quoted strings, and arbitrary numbers of spaces
+* The program will not work if it can't read in less than 17 bytes at a time. It requires the initialization information to come in at the same time. That is, "Salted__" + SALT
+* Redirection operators *must* be last on a line. i.e., `ls >x 2>y /` will ignore everything after `y`
+
+Known Bugs
+---------
+* Escaping a redirect operator (i.e. `ls \>`) doesn't work. It will still redirect output, and drop the escape character. This is due to how my parser is setup, and I don't have time to rewrite the entire thing.
+
+Cases Considered
+----------------
+* Arbitrary numbers of spaces: `ls     -l     > /dev/null    ;   ls /not/exist;`
+* Redirection at end of line with no other operator after: `ls -l >` - Syntax error
+* Arbitrary numbers of semicolons and weirdly formatted: `ls;;;;;     ;;ls;` - Syntax error
+* Too many redirects: `ls >>>>>> out` - Syntax error
+* Too many redirects with escape: `ls \>>>>>> out` - Syntax error
+* Multiple escapes: `ls many\ \ \ \ \ \ \ \ escapes`
+* Only redirect operator: `>` - Syntax error
+* Invalid commands after good commands: `ls; ls >>>>>> x` - Syntax error
+* Command not found (execvp() < 0): ensure return code is fed to parent

@@ -1,0 +1,15 @@
+CS-631 Midterm
+==============
+* Goal: Implement `ls(1)`
+* Author: Jason Ajmo (jajmo@stevens.edu)
+
+Compiling
+---------
+* `make` will compile all files into one executable, `ls`.
+* `make debug` does the same as `make`, but adds debug symbols.
+* `make re` recompiles everything from scratch.
+
+Usage
+-----
+`ls [−AacCdFfhiklnqRrSstuwx1] [file ...]`
+All command line switches are supported.

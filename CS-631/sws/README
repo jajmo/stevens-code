@@ -1,0 +1,21 @@
+Final Project - Group 2
+=======================
+
+Authors
+-------
+* Jason Ajmo (jajmo@stevens.edu)
+* Jonah Mania (jmania@stevens.edu)
+* Gurpreet Singh (gsingh14@stevens.edu)
+
+Known Issues
+------------
+* When running as a daemon, absolute paths are required for `-c` and the root directory. This is
+  required since daemon(3) chdir's to the root. We didn't have time to adjust the paths specified
+* When running as a daemon, logging doesn't work properly when accessing home directories.
+  We were never able to successfuly debug this
+* There's some odd bugs that happen sometimes on certain operating systems. These bugs were not
+  able to be resolved, especially since the SunOS box doesn't have any debugging tools
+
+Notes
+-------
+* To compile on SunOS, `gmake(1)` must be used instead of `make(1)` 
