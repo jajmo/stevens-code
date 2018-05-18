@@ -1,0 +1,13 @@
+<% movies.forEach(function (movie) { %>
+<div class="row row-border collapse in" id="<%= movie._id %>">
+    <div class="row">
+        <div class="col-xs-5"><p class="lead"><%= movie.title %></p></div>
+        <div class="col-xs-5"><p class="lead" id="rating-<%= movie._id %>"><%= movie.rating %></p></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1"><button class="btn btn-danger delete" data-id="<%= movie._id %>">Delete</button></div>
+        <div class="col-xs-1"><button class="btn btn-default upvote modify-<%= movie._id %>" data-movie="<%= JSON.stringify(movie); %>">Upvote</button></div>
+        <div class="col-xs-1"><button class="btn btn-default downvote modify-<%= movie._id %>" data-movie="<%= JSON.stringify(movie); %>">Downvote</button></div>
+    </div>
+</div><br />
+<% }); %>

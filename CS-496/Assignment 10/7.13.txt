@@ -1,0 +1,38 @@
+
+(type-of <<exp>> tenv) = texp
+============================================
+(type-of <<let x = exp in body>>) = (type-of <<body>> [x = texp]tenv)
+
+1. (type-of <<let x = 4 in (x 3)>> tenv)
+		= (type-of <<(x 3)>> [x = int]tenv)
+
+		= int != proc, no type
+
+
+2. (type-of <<let f = proc (z) z in proc (x) -((f x), 1)>> tenv)
+		= (type-of <<proc (x) -((f x), 1)>> 
+				[f = (t1 -> t1)]tenv)
+		= (t2 ->
+				(type-of <<-((f x), 1)>> [x = t2, f = (t1 -> t1)]tenv))
+				= int | [x = t2, f = (t1 -> int)]tenv
+						[x = t2, f = (int -> int)]tenv
+
+		= (t2 -> int)
+
+
+3. (type-of <<let p = zero?(1) in if p then 88 else 99>> tenv)
+		= (type-of <<if p then 88 else 99>>
+				[p = (type-of <<zero?(1)>> tenv)]tenv)
+		= (type-of <<if p then 88 else 99>> [p = bool]tenv)
+		= (type-of <<88>> [p = bool]tenv)
+
+		= int
+
+
+4. (type-of <<let p = proc (z) z in if p then 88 else 99>> tenv)
+		= (type-of <<if p then 88 else 99>>
+				[p = (type-of <<proc (z) z>> tenv)]tenv)
+		= (type-of <<if p then 88 else 99>> [p = (t1 -> t1)]tenv)
+
+		= (t1 -> t1) != bool, error
+	   -> int (if p is assumed to be bool)

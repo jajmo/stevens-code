@@ -1,0 +1,1 @@
+("5.3.6" ("4a538838bcf95d326e6a233267cd988e9eb3d88b" . "d4bc7b1139015d8397e9db9846e907c1affc6aab") (collects #"errortrace" #"errortrace-key.rkt") (collects #"eopl" #"main.rkt") (collects #"eopl" #"lang" #"reader.rkt"))

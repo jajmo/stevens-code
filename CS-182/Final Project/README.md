@@ -1,0 +1,1 @@
+See sample from class.

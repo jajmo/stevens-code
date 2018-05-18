@@ -1,0 +1,1 @@
+("5.3.6" ("dc9a8cd69878600f5207f00042ad7a7c82744ff8" . "e13bb6ef3315853c01d169fc968ba6ce7ff91869") (collects #"eopl" #"main.rkt") #"/home/jajmo/Documents/Spring 2015/CS-496/let-lang/data-structures.scm" (collects #"eopl" #"lang" #"reader.rkt"))

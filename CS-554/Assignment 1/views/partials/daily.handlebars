@@ -1,0 +1,46 @@
+<div class="daily-view">
+    <div class="events">
+        <h1>Events for {{weekday}}, {{month}} {{day}} {{year}}</h1>
+        <hr>
+        <ul>
+        {{#each events}}
+            <li>{{{this.link}}}{{@key}}</a></li>
+        {{else}}
+            <p>No events</p>
+        {{/each}}
+        </ul>
+        <button type="button" class="add-event-btn" aria-label="Add Event">
+            Add Event
+        </button>
+        <button type="button" class="home" aria-label="Home">
+            Home
+        </button>
+    </div>
+    <div class="sidebar">
+        <p>This {{weekday}} is the {{dayNum}} day of the year.</p>
+        <p>There are {{daysLeft}} days left in {{year}}.</p>
+    </div>
+</div>
+<div class="footer-daily">
+    <button type="button" id="previous-week">
+        <
+    </button>
+    <div class="day-slider">
+        {{#each days}}
+            {{{this}}}
+        {{/each}}
+    </div>
+    <button type="button" id="next-week">
+        >
+    </button>
+</div>
+<div class="footer-mobile">
+    <button type="button" id="previous-day">
+        <
+    </button>
+    <p>{{monthNum}}/{{day}}/{{year}}</p>
+    <button type="button" id="next-day">
+        >
+    </button>
+</div>
+{{> newTask}}

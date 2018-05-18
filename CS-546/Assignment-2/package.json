@@ -1,0 +1,17 @@
+{
+  "name": "Todo",
+  "version": "1.0.0",
+  "description": "A simple ToDo app written in JavaScript and nodejs",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason Ajmo",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "request-promise": "^2.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <% include ../partials/header %>
+        
+        <main>
+            <h2><%= errorType %></h2>
+            <hr/>
+            <p><%= errorMessage %></p>
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

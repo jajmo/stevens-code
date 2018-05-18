@@ -1,0 +1,44 @@
+<% if (!locals.questionToUpdate) { 
+    method = "POST"; 
+    action = "/questions"; 
+    editing = false;
+    questionToUpdate = null;
+} else { 
+	method= "PUT"; 
+    action= "/questions/" + questionToUpdate.id; 
+    editing = true; 
+} 
+%>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <h3><%= editing ? "Edit Question" : "Create Question"; %></h3>
+            <hr />
+            <form action="<%=action%>" method="POST" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="title">Title</label>
+                    <div class="col-sm-9">
+                        <% if (questionToUpdate) { %>
+                        <input type="text" name="title" class="form-control" id="title" value="<%- questionToUpdate.title %>" placeholder="Question Title" />
+                        <% } else { %>
+                           <input type="text" name="title" class="form-control" id="title" placeholder="Question Title" />
+                        <% } %>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="text">Text</label>
+                    <div class="col-sm-9">
+                        <textarea name="text" class="form-control" id="text" placeholder="An optional area for more question info"><%- questionToUpdate ? questionToUpdate.text : "" %></textarea>
+                    </div>
+                </div>
+                
+                
+                <% if(method !== "POST") { %>
+                    <input type="hidden" name="_method" value="<%=method%>" />
+                <% } %>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>

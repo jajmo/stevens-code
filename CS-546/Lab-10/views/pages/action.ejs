@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>My favorite movies</h1>
+        <nav>
+            <ul class="nav nav-tabs" role="tablist">
+                <li><a href="/">Home</a></li>
+                <li><a href="/scifi">Sci-Fi</a></li>
+                <li class="active"><a href="/action">Action</a></li>
+                <li><a href="/adventure">Adventure</a></li>
+                <li><a href="/new">New Movie</a></li>
+            </ul>
+        </nav><br />
+        <% include ../partials/tablehead %>
+        <div class="panel-group" id="movie">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#movie" href="#martian">The Martian</a></h4>
+                </div>
+                <div id="martian" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-2">
+                                <img src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg" class="img-responsive" alt="The Martian cover">
+                            </div>
+                            <div class="col-lg-4 col-md-3 col-sm-2">
+                                <p>During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.</p>
+                            </div>
+                            <div class="col-lg-4 col-md-3 col-sm-2">
+                                <p>$630.2 Million</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

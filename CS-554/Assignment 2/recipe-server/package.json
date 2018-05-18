@@ -1,0 +1,37 @@
+{
+  "name": "CS-554",
+  "version": "1.0.0",
+  "description": "A small demo electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "productName": "CS-554",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stevens-CS546/CS-554"
+  },
+  "keywords": [
+    "quick",
+    "start",
+    "tutorial"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/Stevens-CS546/CS-554/issues"
+  },
+  "homepage": "https://github.com/Stevens-CS546/CS-554#readme",
+  "devDependencies": {
+    "redis-commander": "^0.4.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.1.9",
+    "mongodb": "^2.1.18",
+    "node-redis-pubsub": "^0.9.0",
+    "node-uuid": "^1.4.7"
+  }
+}

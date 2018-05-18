@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1><%= user.username %>'s Profile</h1>
+		</header>
+		<main class="row">
+            <% if (typeof error === "string") { %>
+                <div class="alert alert-danger" id="error-message"><%= error %></div>
+            <% } %>
+			<section class="col-sm-6">
+				<form action="/profile" method="POST" class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label" for="fname">First Name</label>
+						<input type="text" placeholder="First Name" value="<%= user.profile.firstName %>" name="fname" id="fname" class="form-control" />
+					</div>
+                    <div class="form-group">
+                        <label class="control-label" for="lname">Last Name</label>
+                        <input type="text" placeholder="Last Name" value="<%= user.profile.lastName %>" name="lname" id="lname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="hobby">Hobby</label>
+                        <input type="text" placeholder="Hobby" value="<%= user.profile.hobby %>" name="hobby" id="hobby" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="petname">Pet Name</label>
+                        <input type="text" placeholder="Pet Name" value="<%= user.profile.petName %>" name="petname" id="petname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Save</button>
+                    </div>
+				</form>
+                <form action="/logout" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Logout</button>
+                    </div>
+                </form>
+			</section>
+            <section class="col-sm-6">
+                <ul>
+                    <li>First Name: <%= user.profile.firstName %></li>
+                    <li>Last Name: <%= user.profile.lastName %></li>
+                    <li>Hobby: <%= user.profile.hobby %></li>
+                    <li>Pet Name: <%= user.profile.petName %></li>
+                </ul>
+            </section>
+		</main>
+	</div>
+	<% include ../partials/scripts %>
+</body>
+
+</html>

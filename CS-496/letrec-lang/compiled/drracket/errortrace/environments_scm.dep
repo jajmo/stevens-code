@@ -1,0 +1,1 @@
+("5.3.6" ("5b6886d10ac5513be7279a6b6e8ecd0a9ce8f59d" . "f8dbcc1e5ea5bfb78c94cc5033fd8ac1c21b233d") (collects #"eopl" #"main.rkt") #"/home/jajmo/Documents/Spring 2015/CS-496/letrec-lang/data-structures.scm" (collects #"eopl" #"lang" #"reader.rkt"))

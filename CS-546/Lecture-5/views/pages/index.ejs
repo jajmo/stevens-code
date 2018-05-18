@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <% include ../partials/header %>
+
+        <main>
+            <h2><%= type %></h2>
+            <hr/>
+            <ul>
+                <% questions.forEach(function(question) { %>
+                    <li><a href="/questions/<%=question.id%>"><%= question.title%></a></li>                
+                <% }) %>
+            </ul>
+            
+            <a href="/questions/?type=answered">Answered</a> - 
+            <a href="/questions/?type=unanswered">Unanswered</a> - 
+            <a href="/questions/?type=all">All</a> 
+                       
+            <section>
+                <% include ../partials/question-form %>
+            </section>
+        </main>
+    </div>
+
+</html>

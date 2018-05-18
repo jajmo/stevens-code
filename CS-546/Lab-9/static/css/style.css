@@ -1,0 +1,127 @@
+/* Styles I have provided: */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14pt;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+.content {
+    margin: auto;
+	padding: 0 25pt;
+}
+
+body { 
+	color: #333;
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6 {
+	text-align: center;
+}
+
+section.chapter {
+	border-top: 1px solid #999;
+	padding: 20pt 0;
+    background: #FFF;
+}
+
+a { 
+	color: #44609D;
+}
+
+ nav ul {
+ 	padding: 0;
+ 	list-style: none;
+ }
+
+ nav li { 
+    width: 300px;
+ }
+ 
+ /* Solution */
+ 
+ /* Selected text */
+::selection {
+    color: #FFF;
+    background-color: #44609D;
+}
+
+::-moz-selection {
+    color: #FFF;
+    background-color: #44609D;
+}
+
+/* Drop cap */
+section.chapter p:nth-child(2):first-letter {
+    font-size: 200%;
+    font-family: cursive;
+}
+
+/* First line */
+section.chapter p:nth-child(2):first-line {
+    font-size: 175%;
+}
+
+section.chapter {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Media query */
+@media (min-width: 750px) {
+    /* Hover on */
+    nav > ul > li:hover {
+        font-size: 150%;
+        transition: font-size 0.5s ease-in-out;
+    }
+
+    /* Hover off */
+    nav > ul > li {
+        transition: font-size 0.5s ease-in-out;
+    }
+
+    html {
+        font-size: 18pt;
+    }
+
+    .content {
+        max-width: 800px;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    section.chapter {
+        opacity: 0.75;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    section.chapter:hover, section.chapter:focus, section.active {
+        opacity: 1;
+    }
+}

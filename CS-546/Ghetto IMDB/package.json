@@ -1,0 +1,30 @@
+{
+  "name": "GhettoIMDB",
+  "version": "1.0.0",
+  "description": "A boilerplate to use in CS-546 assignments; will be updated",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jajmo/Ghetto-IMDB.git"
+  },
+  "author": "CS-546",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jajmo/Ghetto-IMDB/issues"
+  },
+  "homepage": "https://github.com/jajmo/Ghetto-IMDB#README",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "mongodb": "^2.1.7",
+    "node-uuid": "^1.4.7",
+    "request": "^2.72.0",
+    "request-promise": "^2.0.0"
+  }
+}

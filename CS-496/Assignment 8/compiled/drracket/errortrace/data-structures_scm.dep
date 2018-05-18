@@ -1,0 +1,1 @@
+("5.3.6" ("c4d01066f39882992800979fa7a29ee34179446e" . "41d6ae6fa77e852220deed61c6ca4524d527fd0f") (collects #"eopl" #"main.rkt") #"/home/jajmo/Documents/Spring 2015/CS-496/Assignment 8/store.scm" #"/home/jajmo/Documents/Spring 2015/CS-496/Assignment 8/lang.scm" (collects #"eopl" #"lang" #"reader.rkt"))

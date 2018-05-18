@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <h1 id="the-heading">Welcome to the window!</h1>
+    </header>
+    <main>
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="/location">Nothing Added</a></li>
+            <li role="presentation"><a href="/location?search_query=search_value">Add Search</a></li>
+            <li role="presentation"><a href="/location#some-hash" id="change-hash">Add Hash</a></li>
+        </ul>
+        <table class="table" id="location-data">
+            <thead>
+            <tr>
+                <th>Property Name</th>
+                <th>Type</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+</div>
+
+<% include ../partials/scripts %>
+<script src="/assets/js/location.js"></script>
+
+</body>
+
+</html>

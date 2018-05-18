@@ -1,0 +1,33 @@
+<div class="modal" id="new-event-modal">
+    <div class="new-event-content">
+        <span class="close">x</span>
+        {{#if day}}
+            <h1>New event for {{month}} {{day}}, {{year}}</h1>
+        {{else}}
+            <h1>New event for {{month}}, {{year}}</h1>
+        {{/if}}
+        <hr>
+        <form id="new-task-form">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" placeholder="Title..." />
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" placeholder="Location..." />
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description" placeholder="Description..." />
+            {{#if day}}
+                <input type="hidden" name="day" value={{day}} />
+            {{else}}
+                <label for="day">Day</label>
+                <select name="day">
+                    {{#each days}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            {{/if}}
+            <div id="error"></div>
+            <input type="hidden" name="month" value={{month}} />
+            <input type="hidden" name="year" value={{year}} />
+            <input type="submit" value="Add" />&nbsp;<button type="button" class="home-btn">Close</button>
+        </form>
+    </div>
+</div>

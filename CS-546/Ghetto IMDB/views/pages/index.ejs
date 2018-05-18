@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+    <link type="text/css" rel="stylesheet" href="/assets/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/movie-panel.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/css/form.css" />
+</head>
+
+<body class="container-fluid">
+    <%- include('../partials/nav', { user: user }); %>
+    <h2><%= pageHeader %></h2>
+    <section class="container-fluid">
+        <form class="input-group" method="post" action="/search">
+            <input type="text" name="search" aria-label="Search" id="search" class="form-control" placeholder="Search..." />
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-secondary" aria-label="Search Button">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </span>
+        </form>
+    </section>
+<% for (var genre in movies) { %>
+    <%- include('../partials/genre-carousel', { user: user, genre: genre, movies: movies[genre], watchOptions: watchOptions }); %>
+<% } %>
+
+    <!-- TODO: Never ending scroll thing -->
+<% include ../partials/scripts %>
+</body>
+
+</html>

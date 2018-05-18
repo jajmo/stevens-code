@@ -1,0 +1,322 @@
+$body-background: #E0FFFF;
+$primary-color: #333;
+
+$primary-font-size: 20pt;
+
+$cal-col-width: 1.2em;
+
+body, html {
+    background: $body-background;
+    color: $primary-color;
+
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: $primary-font-size;
+}
+
+h1 {
+    display: inline;
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+button {
+    vertical-align: middle;
+}
+
+.container {
+    width: 98%;
+}
+
+.calendar {
+    max-width: 800px;
+    min-width: 700px;
+    margin: 0 auto;
+    padding-top: 1em;
+    z-index: 0;
+
+    .weekday-row {
+        display: -webkit-flex;
+        display: flex;
+
+        .weekday-item {
+            flex-grow: 1;
+            padding-bottom: 1em;
+            width: $cal-col-width;
+            height: 20px;
+            -webkit-align-content: center;
+                    align-content: center;
+            text-align: center;
+
+            p {
+                margin: 3px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    .week-row {
+        display: -webkit-flex;
+        display: flex;
+
+        .day {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;
+            width: $cal-col-width;
+            word-wrap: break-word;
+            height: 100px;
+            margin: 1px;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            overflow: hidden;
+        }
+    }
+}
+
+.row {
+    width: 100%;
+}
+
+.add-event-btn {
+    position: relative;
+    float: right;
+}
+
+.month-year {
+    display: inline;
+}
+
+.modal {
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+
+    .new-event-content {
+        z-index: 2;
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+    
+        h1 {
+            font-size: 1rem;
+        }
+    
+        label {
+            font-size: 0.7rem;
+            display: block;
+        }
+
+        input, select {
+            margin-bottom: 1rem;
+        }
+
+        button {
+            margin-top: 0.2rem; /* Counteract 1rem input bottom margin to line up buttons */
+        }
+    }
+
+    .close {
+        color: #767676;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+#error {
+    color: red;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.event {
+    display: block;
+    font-size: 0.5rem;
+}
+
+.daily-view {
+    display: flex;
+    height: 100%;
+    position: relative;
+
+    .add-event-btn {
+        float: left;
+    }
+
+    .home, .home-task {
+        float: left;
+        margin-left: 0.5rem;
+    }
+
+    .events {
+        margin: 5%;
+    }
+
+    .sidebar {
+        flex: 1;
+        width: 25%;
+        height: 100%;
+        margin-top: 3em;
+        border-left: 1px solid black;
+        padding-left: 0.5rem;
+    }
+}
+
+.footer-daily {
+    margin-top: auto;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    display: flex;
+    display: -webkit-flex;
+
+    button {
+        display: inline;
+    }
+
+    .day-slider {
+        display: flex;
+        display: -webkit-flex;
+        min-width: 100%;
+        justify-content: center;
+        align-self: flex-end;
+        align-items: center;
+
+        .slider-day {
+            display: flex;
+            display: -webkit-flex;
+            flex: 1;
+            width: 100px;
+            height: 100px;
+            justify-content: center;
+            border: 1px solid black;
+            font-size: 0.7rem;
+        }
+    }
+}
+
+.footer-mobile {
+    display: none;
+}
+
+.event {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.monthly-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 400px) {
+
+    .new-event-content {
+        min-width: 90%;
+        margin: 0 auto;
+    }
+
+    .daily-view {
+        display: block;
+        padding-bottom: 1.3em;
+
+        .events {
+            margin: 0;
+        }
+
+        .sidebar {
+            min-width: 100%;
+            margin-top: 0.5em;
+            display: block;
+            border: none !important;
+            border-top: 1px solid black !important;
+            flex: 0;
+        }
+    }
+
+    .footer-daily {
+        display: none;
+    }
+
+    .footer-mobile {
+        display: inline-block;
+        background-color: $body-background;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 1.3em;
+        text-align: center;
+        border-top: 1px solid black;
+
+        button, p {
+            display: inline;
+        }
+    }
+
+    .monthly-mobile {
+        display: block;
+        height: 100%;
+    }
+
+    .events {
+        padding-bottom: 2em;
+        z-index: -1;
+    }
+
+    .row, .calendar {
+        display: none;
+    }
+
+    .day-mobile {
+        h1 {
+            border-bottom: 1px solid black;
+            display: block;
+        }
+
+        .event {
+            font-size: 1rem;
+        }
+    }
+
+    .footer {
+        background-color: $body-background;
+        display: block;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        height: 2em;
+        text-align: center;
+
+        .add-event-btn {
+            min-width: 100%;
+        }
+    }
+
+    .new-event-content {
+        width: 99%;
+    }
+}

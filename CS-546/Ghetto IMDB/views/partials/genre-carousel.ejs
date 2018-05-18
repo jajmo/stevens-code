@@ -1,0 +1,51 @@
+<section class="genre-carousel">
+    <h2>
+        <%= genre %>
+        <% genre = (genre === "Saved Movies") ? "saved-movies" : genre %>
+        <button
+            data-toggle="collapse"
+            data-expanded="true"
+            data-target="#movie-carousel-<%= genre %>"
+            class="expand-button btn-collapse"
+            aria-label="Collapse Genre"
+        ><span class="caret"></span></button>
+    </h2>
+
+    <div
+        class="carousel slide collapse in"
+        id="movie-carousel-<%= genre %>"
+        data-toggle="collapse"
+        data-interval="false"
+        data-ride="carousel"
+        data-target="see-issue-34"
+    >
+        <div class="carousel-inner" role="listbox">
+
+<%    var movieArrClone = movies.slice();
+            var groups  = [];
+            var isFirst = true;
+            var watchOptions  = (watchOptions) ? watchOptions : undefined;
+
+            while (movieArrClone.length > 0)  {
+                groups.push(movieArrClone.splice(0, 6));
+            }
+
+            groups.forEach(function (group) { %>
+                <div class="item <%=(isFirst) ? 'active' : ''%>">
+                    <div class="row">
+
+<%          group.forEach(function (movie) { %>
+<%-           include('../partials/movie-panel', { user: user, movie: movie, genre: genre, watchOptions: watchOptions }); %>
+<%          }); %>
+
+                    </div>
+                </div>
+
+<%      isFirst = false;
+            }); %>
+
+        </div>
+        <a class="left carousel-control" href="#movie-carousel-<%= genre %>" data-slide="prev">‹</a>
+        <a class="right carousel-control" href="#movie-carousel-<%= genre %>" data-slide="next">›</a>
+    </div>
+</section>

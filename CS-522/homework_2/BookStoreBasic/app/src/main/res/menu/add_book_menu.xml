@@ -1,0 +1,20 @@
+<menu xmlns:tools="schemas.android.com/tools"
+    tools:context=".activities.AddBookActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Menu for the add book activity -->
+
+    <item
+        android:id="@+id/add"
+        android:icon="@drawable/ic_menu_add"
+        app:showAsAction="ifRoom"
+        android:title="@string/add"/>
+
+    <item
+        android:id="@+id/cancel"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/cancel"
+        app:showAsAction="ifRoom" />
+
+</menu>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>My First Database Lab!</h1>
+        </header>
+        <main class="row">
+            <section class="col-sm-6">
+                <h2>My Comments</h2>
+                <hr />
+                <% comments.forEach(function(commentObject){ %>
+                <article data-id="<%= commentObject._id %>">
+                    <%= commentObject.comment %>
+                </article>
+                <hr />
+                <% }); %>
+            </section>
+            <aside class="col-sm-6">
+                <h2>Add Comment</h2>
+                <hr />
+                <form action="/" method="POST">
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+                    </div>
+                    <% if (error) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span>
+                            <%= error %>
+                        </div>
+                    <% } %>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </aside>
+
+        </main>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

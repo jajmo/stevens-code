@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+    <style>
+        .row-border {
+            border: solid;
+            border-width: 2px;
+            border-color: #ddd;
+            border-radius: 4px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Movies</h1>
+        <nav>
+            <button class="btn btn-default" id="all-movies">All Movies</button>
+            <button class="btn btn-default" id="popular-movies">Popular Movies</button>
+        </nav>
+        <div class="row">
+            <div class="col-xs-5"><h2>Title</h2></div>
+            <div class="col-xs-5"><h2>Rating</h2></div>
+        </div>
+        <div id="movie-container">
+            <%- include('../partials/movie', { movies: movies }); %>
+        </div>
+        <h2>Add a Movie</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rating" class="col-sm-2 control-label">Rating</label>
+                <div class="col-sm-10">
+                    <input type="number" id="rating" min="0" max="5" class="form-control" placeholder="Rating">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" id="submit-movie" class="btn btn-default">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <% include ../partials/scripts %>
+</body>
+
+</html>

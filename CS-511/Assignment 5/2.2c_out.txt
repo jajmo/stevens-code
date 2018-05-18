@@ -1,0 +1,37 @@
+ltl leader_count: [] (((nr_leaders==0)) || ((nr_leaders==1)))
+
+(Spin Version 6.4.5 -- 1 January 2016)
+        + Partial Order Reduction
+
+Full statespace search for:
+        never claim             + (leader_count)
+        assertion violations    + (if within scope of claim)
+        acceptance   cycles     + (fairness disabled)
+        invalid end states      - (disabled by never claim)
+
+State-vector 236 byte, depth reached 287, errors: 0
+    14122 states, stored
+      120 states, matched
+    14242 transitions (= stored+matched)
+     2572 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    3.555       equivalent memory usage for states (stored*(State-vector + overhead))
+    2.921       actual memory usage for states (compression: 82.17%)
+                state-vector as stored = 189 byte + 28 byte overhead
+  128.000       memory used for hash table (-w24)
+    0.107       memory used for DFS stack (-m2000)
+  130.939       total actual memory usage
+
+
+unreached in proctype nnode
+        (0 of 48 states)
+unreached in init
+        (0 of 33 states)
+unreached in claim leader_count
+        _spin_nvr.tmp:8, state 10, "-end-"
+        (1 of 10 states)
+
+pan: elapsed time 0.03 seconds
+pan: rate 470733.33 states/second

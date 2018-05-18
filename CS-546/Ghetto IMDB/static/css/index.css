@@ -1,0 +1,55 @@
+#search {
+    padding-bottom: 5px;
+    padding-left: 5px;
+    background-color: #ecf0f1;
+}
+
+#search + .input-group-btn button {
+    background-color: #ecf0f1;
+}
+
+.input-button {
+    display: flex !important;
+}
+
+.input-group {
+    margin: 0 auto;
+    width: 300px;
+    padding-bottom: 5px;
+}
+
+.carousel {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    overflow: visible;
+}
+
+.carousel-control {
+    padding-top: 10%;
+    width: 5%;
+}
+
+.carousel-inner .item .row {
+    display: flex;
+    align-items: stretch;
+    max-height: 370px;
+    margin-left: -5px;
+}
+
+.genre-carousel .expand-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ecf0f1;
+}

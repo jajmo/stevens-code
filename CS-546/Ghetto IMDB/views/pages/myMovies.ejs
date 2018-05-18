@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head', { pageTitle: "My Movies" }); %>
+    <link type="text/css" rel="stylesheet" href="/assets/css/mymovies.css" />
+</head>
+
+<body class="container-fluid">
+    <% include ../partials/nav %>
+
+    <main class="container">
+        <h2>My Movies</h2>
+        <% movies.forEach(function(movie){ %>
+            <% include ../partials/movie-attributes %>
+        <% }) %>
+    </main>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

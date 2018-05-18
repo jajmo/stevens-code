@@ -1,0 +1,46 @@
+{
+  "name": "electron-calendar",
+  "version": "1.0.0",
+  "description": "A small calendar application using electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "productName": "electron-calendar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stevens-CS546/CS-554"
+  },
+  "keywords": [
+    "Electron",
+    "calendar"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/Stevens-CS546/CS-554/issues"
+  },
+  "homepage": "https://github.com/Stevens-CS546/CS-554#readme",
+  "devDependencies": {
+    "electron": "^1.3.4",
+    "electron-rebuild": "^1.2.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "handlebars": "^4.0.5",
+    "xss": "^0.2.13"
+  }
+}

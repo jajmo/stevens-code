@@ -1,0 +1,73 @@
+/* Styles I have provided: */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18pt;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+main {
+    width: 60%;
+}
+
+/* Styles you create */
+
+.content {
+	padding-left: 50pt;
+	padding-right: 50pt;
+}
+
+body {
+	color: #333;
+	font-size: 15pt;
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6 {
+	text-align: center;
+}
+
+section.chapter {
+	border-top-style: solid;
+	padding: 20pt 0;
+}
+
+#scroll-to-top {
+	position: fixed;
+	bottom: 10%;
+	right: 10%;
+}
+
+a, a:link, a:hover, a:active, a:visited {
+	color: #44609D;
+}
+
+nav > ul {
+	list-style: none;
+	padding: 0;
+}

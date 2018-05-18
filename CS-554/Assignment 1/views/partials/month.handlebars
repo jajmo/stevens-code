@@ -1,0 +1,60 @@
+<div class="row">
+    <button type="button" aria-label="Previous Month" id="previous-month">
+        <
+    </button>
+    <h1 class="month-year">{{month}}, {{year}}</h1>
+    <button type="button" aria-label="Next Month" id="next-month">
+        >
+    </button>
+    <button type="button" class="add-event-btn" aria-label="Add Event">
+        Add Event
+    </button>
+</div>
+<div class="calendar">
+    <div class="weekday-row">
+        <div class="weekday-item">
+            <p>Sunday</p>
+        </div>
+        <div class="weekday-item">
+            <p>Monday</p>
+        </div>
+        <div class="weekday-item">
+            <p>Tuesday</p>
+        </div>
+        <div class="weekday-item">
+            <p>Wednesday</p>
+        </div>
+        <div class="weekday-item">
+            <p>Thursday</p>
+        </div>
+        <div class="weekday-item">
+            <p>Friday</p>
+        </div>
+        <div class="weekday-item">
+            <p>Saturday</p>
+        </div>
+    </div>
+    {{#each cal}}
+        {{{this}}}
+    {{/each}}
+</div>
+<div class="monthly-mobile">
+    <div class="events">
+        {{#each mobile}}
+            {{{this}}}
+        {{/each}}
+    </div>
+    <div class="footer">
+        <button type="button" class="add-event-btn" aria-label="Add Event">
+            Add Event
+        </button>
+        <button type="button" aria-label="Previous Month" id="previous-month">
+            <
+        </button>
+        <h1 class="month-year">{{month}}, {{year}}</h1>
+        <button type="button" aria-label="Next Month" id="next-month">
+            >
+        </button>
+    </div>
+</div>
+{{> newTask}}

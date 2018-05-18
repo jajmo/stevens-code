@@ -1,0 +1,18 @@
+{
+  "name": "recipe-users",
+  "version": "1.0.0",
+  "description": "Data for the users portion of our website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phil Barresi",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.4.6",
+    "mongodb": "^2.2.10",
+    "node-uuid": "^1.4.7",
+    "promise-redis": "0.0.5"
+  }
+}

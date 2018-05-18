@@ -1,0 +1,71 @@
+a) (value-of «let x = 2 in if zero?(x) the 3 else let y = 4 in let x = 5 in -(x,y)» ρ)
+    (value-of «if zero?(x) then 3 else let y = 4 in let x = 5 in -(x,y)» [x = (value-of «2» ρ] ρ)
+    (value-of «if zero?(x) then 3 else let y = 4 in let x = 5 in -(x,y)» [x = ⌈2⌉] ρ)
+    (if (expval->bool (value-of «zero?(⌈2⌉)» ρ))
+        ⌈3⌉
+        (value-of  «let y = 4 in let x = 5 in -(x,y)» [x = ⌈2⌉] ρ))
+    (if (expval->bool (bool-val #f))
+        ⌈3⌉
+        (value-of  «let y = 4 in let x = 5 in -(x,y)» [x = ⌈2⌉] ρ))
+    (if #f
+        ⌈3⌉
+        (value-of  «let y = 4 in let x = 5 in -(x,y)» [x = ⌈2⌉] ρ))
+    (value-of «let y = 4 in let x = 5 in -(x,y)» [x = ⌈2⌉] ρ)
+    (value-of «let x = 5 in -(x,y)» [x = ⌈2⌉] [y = (value-of «4» ρ]  ρ)
+    (value-of «let x = 5 in -(x,y)» [x = ⌈2⌉] [y = ⌈4⌉]  ρ)
+    (value-of «-(x,y)» [x = ⌈5⌉] [y = ⌈4⌉]  ρ)
+    ⌈-(⌈5⌉,⌈4⌉)⌉
+    ⌈1⌉
+
+
+b) let f = proc (x) proc (y) -(x, -(0, y)) in ((f 10) 20)
+
+c)
+(value-of «let makemult = proc (maker)
+			    proc (x)
+		            if zero?(x)
+		            then 0
+		            else -(((maker maker) -(x,1)), -4)
+in let times4 = proc (x) ((makemult makemult) x)
+	in (times4 3)» ρ)
+
+(value-of «let times4 = proc (x) ((makemult makemult) x) in (times4 3)» 
+	[makemult = (proc-val (procedure maker
+		    	(proc-val (procedure x
+			(if (bool-val (zero? x))
+			⌈0⌉
+			(- ((maker maker) (- x 1)) -4))))))] ρ)
+
+(value-of «(times4 3)»
+	[times4 = (proc-val (procedure x
+		  ((makemult makemult) x)]
+	[makemult = (proc-val (procedure maker
+		    	(proc-val (procedure x
+			(if (bool-val (zero? x))
+			⌈0⌉
+			(- ((maker maker) (- x 1)) -4))))))] ρ)
+
+⌈(apply-procedure
+	(procedure x
+	(apply-procedure
+		(procedure maker
+		(proc-val (procedure x
+		(if (bool-val (zero? x))
+		⌈0⌉
+		(- ((maker maker) (- x 1)) -4)))))))) [x = ⌈3⌉]⌉
+
+Can't figure out rest. Answer is ⌈12⌉
+
+Factorial:
+let calcmult = proc (val) proc (x) proc(y)
+      if zero?(x) then 0
+      else -((((val val) -(x, 1)) y), -(0, y))
+      in let times = proc(x) proc(y)
+                    (((calcmult calcmult) x) y)
+      in let f = proc(func) proc(num)
+        if zero?(num)
+           then 1
+        else
+           ((times ((func func) -(num, 1))) num)
+      in let fact = proc (x) ((f f) x)
+      in (fact 5)

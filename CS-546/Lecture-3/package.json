@@ -1,0 +1,16 @@
+{
+  "name": "lecture3",
+  "version": "1.0.0",
+  "description": "Lecture 3 code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "request-promise": "^2.0.0"
+  }
+}
